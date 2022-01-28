@@ -3,17 +3,21 @@
   hosts: localhost
   tasks:
     - name: Create Resource Group
-      shell: az group create --name rg-uksouth_01 --location uksouth --subscription subansible
+      shell: az group create --name rg-uksouth_01 --location uksouth --subscription subansible --tags user_id=1
       register: create_rg
+      tags: create_rg
 
     - name: Resource Group Created
       debug:
         var: create_rg
+      tags: create_rg
 
     - name: Delete Resource Group
       shell: az group delete --name rg-uksouth_01 --subscription subansible --yes
       register: delete_rg
+      tags: delete_rg
 
     - name: Resource Group Deleted
       debug:
         var: delete_rg
+      tags: delete_rg
