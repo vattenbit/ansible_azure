@@ -1,6 +1,6 @@
 ---
 - name: Install Azure CLI
-  become: yes  
+  become: true  
   become_user: root 
   hosts: localhost
   tasks:
