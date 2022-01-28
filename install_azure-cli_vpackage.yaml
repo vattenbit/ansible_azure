@@ -1,0 +1,11 @@
+---
+- name: Install Azure CLI
+  become: yes  
+  become_user: root 
+  hosts: localhost
+  tasks:
+    - name: Install package azure-cli
+      package:
+        name: azure-cli
+        state: present
+
