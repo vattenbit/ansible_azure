@@ -1,0 +1,18 @@
+---
+- name: Install Azure CLI
+  become: yes  
+  become_user: root 
+  hosts: localhost
+  tasks:
+    - name: Install package azure-cli
+      shell: apt install azure-cli -y
+      register: install_azure
+
+    - name: Installation Result
+      debug:
+        var: install_azure
+
+    - name: Test az cli
+      shell: az --version
+      register: test_az_cli
+
