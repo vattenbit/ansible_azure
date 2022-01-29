@@ -2,13 +2,14 @@
 - name: Create Virtual Machine
   hosts: localhost
   tasks:
-    - name: Check input vars
+    - name: Check input vars create_rg
       debug:
         msg: 
           - "subscription: {{ subscription }}"
           - "location: {{ location }}"
           - "rg_name: {{ rg_name }}"
           - "user_id: {{ user_id }}"
+      tags: create_rg
 
     - name: Create Resource Group
       shell: az group create \
@@ -23,6 +24,13 @@
       debug:
         var: create_rg
       tags: create_rg
+
+    - name: Check input vars delete_rg
+      debug:
+        msg: 
+          - "subscription: {{ subscription }}"
+          - "rg_name: {{ rg_name }}"
+      tags: delete_rg
 
     - name: Delete Resource Group
       shell: az group delete \
