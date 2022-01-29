@@ -1,13 +1,6 @@
 ---
 - name: Create Virtual Machine
   hosts: localhost
-
-  vars:
-    subscription: subansible
-    location: uksouth
-    rg_name: rg-uksouth-01
-    user_id: 1
-
   tasks:
     - name: Create Resource Group
       shell: az group create \
