@@ -1,5 +1,7 @@
 ---
 - name: Install package azure-cli
+  become: true
+  become_user: root
   shell: apt install azure-cli -y
   register: install_azure
 

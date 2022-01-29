@@ -1,4 +1,3 @@
 ---
-- import_tasks:
-  - package.yaml
-  #- shell.yaml
+- import_tasks: package.yaml
+#- import_tasks: shell.yaml
