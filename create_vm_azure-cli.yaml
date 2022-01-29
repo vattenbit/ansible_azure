@@ -2,6 +2,14 @@
 - name: Create Virtual Machine
   hosts: localhost
   tasks:
+    - name: Check input vars
+      debug:
+        msg: 
+          - "subscription: {{ subscription }}"
+          - "location: {{ location }}"
+          - "rg_name: {{ rg_name }}"
+          - "user_id: {{ user_id }}"
+
     - name: Create Resource Group
       shell: az group create \
         --name {{ rg_name }} \
