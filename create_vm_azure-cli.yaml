@@ -6,10 +6,15 @@
     subscription: subansible
     location: uksouth
     rg_name: rg-uksouth-01
+    user_id: 1
 
   tasks:
     - name: Create Resource Group
-      shell: az group create --name {{ rg_name }} --location {{ location }} --subscription {{ subscription }} --tags user_id=1
+      shell: az group create \
+        --name {{ rg_name }} \
+        --location {{ location }} \
+        --subscription {{ subscription }} \
+        --tags user_id={{ user_id }}
       register: create_rg
       tags: create_rg
 
@@ -19,7 +24,10 @@
       tags: create_rg
 
     - name: Delete Resource Group
-      shell: az group delete --name {{ rg_name }} --subscription {{ subscription }} --yes
+      shell: az group delete \
+        --name {{ rg_name }} \
+        --subscription {{ subscription }} \
+        --yes
       register: delete_rg
       tags: delete_rg
 
