@@ -1,0 +1,7 @@
+---
+- name: Create Virtual Machine
+  hosts: localhost
+  roles:
+    - install
+    - create_rg
+    #- create_vm
