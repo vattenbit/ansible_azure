@@ -1,0 +1,6 @@
+{
+    "subscription": "subansible",
+    "location": "uksouth",
+    "rg_name": "rg-uksouth-01",
+    "user_id": 1
+}
