@@ -1,9 +1,15 @@
 ---
 - name: Create Virtual Machine
   hosts: localhost
+
+  vars:
+    subscription: subansible
+    location: uksouth
+    rg_name: rg-uksouth-01
+
   tasks:
     - name: Create Resource Group
-      shell: az group create --name rg-uksouth_01 --location uksouth --subscription subansible --tags user_id=1
+      shell: az group create --name {{ rg_name }} --location {{ location }} --subscription {{ subscription }} --tags user_id=1
       register: create_rg
       tags: create_rg
 
@@ -13,7 +19,7 @@
       tags: create_rg
 
     - name: Delete Resource Group
-      shell: az group delete --name rg-uksouth_01 --subscription subansible --yes
+      shell: az group delete --name {{ rg_name }} --subscription {{ subscription }} --yes
       register: delete_rg
       tags: delete_rg
 
