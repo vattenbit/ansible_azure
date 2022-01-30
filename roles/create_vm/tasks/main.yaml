@@ -2,17 +2,19 @@
 - name: Check input vars create_vm
   debug:
     msg: 
-      - "subscription: {{ subscription }}"
-      - "location: {{ location }}"
+      - "subscription": "{{ subscription }}"
       - "rg_name: {{ rg_name }}"
       - "user_id: {{ user_id }}"
+      - "vm_name: {{ vm_name }}"
+      - "image: {{ image }}"
   tags: create_vm
 
 - name: Create Virtual Machine
   shell: az vm create \
+    --subscription {{ subscription }} \
     --resource-group {{ rg_name }} \
-    --name myVM \
-    --image Win2019Datacenter \
+    --name {{ vm_name }} \
+    --image {{ image }} \
     --public-ip-sku Standard \
     --admin-username azureuser 
   register: create_vm
