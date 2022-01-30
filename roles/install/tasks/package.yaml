@@ -1,8 +1,0 @@
----
-- name: Install package azure-cli
-  become: true
-  become_user: root
-  package:
-    name: azure-cli
-    state: present
-

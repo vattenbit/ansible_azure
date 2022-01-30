@@ -1,0 +1,24 @@
+---
+- name: Check input vars create_vm
+  debug:
+    msg: 
+      - "subscription: {{ subscription }}"
+      - "location: {{ location }}"
+      - "rg_name: {{ rg_name }}"
+      - "user_id: {{ user_id }}"
+  tags: create_vm
+
+- name: Create Virtual Machine
+  shell: az vm create \
+    --resource-group {{ rg_name }} \
+    --name myVM \
+    --image Win2019Datacenter \
+    --public-ip-sku Standard \
+    --admin-username azureuser 
+  register: create_vm
+  tags: create_vm
+
+- name: Virtual Machine Created
+  debug:
+    var: create_vm
+  tags: create_vm
