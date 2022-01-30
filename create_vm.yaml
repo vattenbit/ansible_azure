@@ -4,5 +4,5 @@
   roles:
     - install
     - create_rg
-    #- create_vm
+    - create_vm
     - delete_rg
