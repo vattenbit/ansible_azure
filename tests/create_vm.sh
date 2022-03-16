@@ -1,0 +1,1 @@
+ansible-playbook ../create_vm.yaml -e "@create_vm.json"

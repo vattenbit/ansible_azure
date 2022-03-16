@@ -1,0 +1,5 @@
+---
+- name: Create Resource Group
+  hosts: localhost
+  roles:
+    - create_rg

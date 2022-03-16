@@ -6,18 +6,13 @@
       - "location: {{ location }}"
       - "rg_name: {{ rg_name }}"
       - "user_id: {{ user_id }}"
-  tags: create_rg
-
+      
 - name: Create Resource Group
-  shell: az group create \
-    --name {{ rg_name }} \
-    --location {{ location }} \
-    --subscription {{ subscription }} \
-    --tags user_id={{ user_id }}
+  azure_rm_resourcegroup:
+    name: ansible-rg
+    location: eastus
   register: create_rg
-  tags: create_rg
 
 - name: Resource Group Created
   debug:
     var: create_rg
-  tags: create_rg

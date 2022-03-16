@@ -1,0 +1,1 @@
+ansible-playbook ../create_rg.yaml -e "@create_rg.json"
