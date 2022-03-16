@@ -1,16 +1,14 @@
 ---
 - name: Check input vars create_rg
   debug:
-    msg: 
-      - "subscription: {{ subscription }}"
+    msg:
       - "location: {{ location }}"
       - "rg_name: {{ rg_name }}"
-      - "user_id: {{ user_id }}"
       
 - name: Create Resource Group
   azure_rm_resourcegroup:
-    name: ansible-rg
-    location: eastus
+    name: "{{ rg_name }}"
+    location: "{{ location }}"
   register: create_rg
 
 - name: Resource Group Created

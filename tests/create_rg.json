@@ -1,8 +1,4 @@
 {
-    "subscription": "subansible",
     "location": "uksouth",
-    "rg_name": "rg-uksouth-01",
-    "user_id": 1,
-    "vm_name": "vmtest" ,
-    "image":"Win2019Datacenter"
+    "rg_name": "rg-uksouth-01"
 }
